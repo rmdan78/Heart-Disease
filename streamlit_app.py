@@ -64,10 +64,6 @@ with st.form(key='heart_disease_form'):
                         "Cacat Reversibel")
 
     # Heart disease diagnosis
-    num = st.selectbox("Diagnosa Penyakit Jantung", options=[0, 1, 2, 3, 4], format_func=lambda x: 
-                       "Tidak Ada Penyakit" if x == 0 else 
-                       f"Penyakit Ada (Tingkat Keparahan: {x})")
-
     # Submit button
     submit_button = st.form_submit_button(label='Kirim')
 
@@ -88,7 +84,6 @@ if submit_button:
         'slope': [slope],
         'ca': [ca],
         'thal': [thal],
-        'num': [num]
     }
     df = pd.DataFrame(data)
 
