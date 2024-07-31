@@ -97,6 +97,3 @@ if submit_button:
         st.write(f"Hasil Prediksi: {'Penyakit Jantung Ditemukan' if prediction[0] > 0 else 'Tidak Ada Penyakit Jantung'}")
     except Exception as e:
         st.error(f"Error: {e}")
-
-    # Display the prediction
-    st.write(f"Hasil Prediksi: {'Penyakit Jantung Ditemukan' if prediction[0] > 0 else 'Tidak Ada Penyakit Jantung'}")
