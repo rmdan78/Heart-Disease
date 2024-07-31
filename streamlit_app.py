@@ -97,7 +97,7 @@ if submit_button:
     st.write(df)
 
     # Prediction using the loaded model
-    prediction = model.predict(df.drop(columns=['num']))
+    prediction = model.predict(df)
 
     # Display the prediction
     st.write(f"Hasil Prediksi: {'Penyakit Jantung Ditemukan' if prediction[0] > 0 else 'Tidak Ada Penyakit Jantung'}")
