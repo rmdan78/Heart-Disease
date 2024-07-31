@@ -90,8 +90,6 @@ if submit_button:
     df = pd.DataFrame(data)
 
     # Display the DataFrame
-    st.write("Data yang Dimasukkan:")
-    st.write(df)
 
     # Prediction using the loaded model
     try:
