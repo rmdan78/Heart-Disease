@@ -96,6 +96,6 @@ if submit_button:
     # Prediction using the loaded model
     try:
         prediction = model.predict(df)
-        st.write(f"Hasil Prediksi: {'Penyakit Jantung Ditemukan' if prediction[0] > 0 else 'Tidak Ada Penyakit Jantung'}")
+        st.write(f"Hasil Prediksi: {'Beresiko Terkena Serangan jantung' if prediction[0] > 0 else 'Tidak Beresiko Terkena Serangan jantung'}")
     except Exception as e:
         st.error(f"Error during prediction: {e}")
