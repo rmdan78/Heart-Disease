@@ -1,10 +1,13 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 
 # Load the trained model
-
-model = pickle.load(open('hearth.pkl', 'rb'))
+try:
+    model = joblib.load('trained_model.joblib')
+except Exception as e:
+    st.error(f"Error loading the model: {e}")
+    st.stop()
 
 # Title
 st.title("Form Input Prediksi Penyakit Jantung")
@@ -63,7 +66,6 @@ with st.form(key='heart_disease_form'):
                         "Cacat Tetap" if x == 6 else 
                         "Cacat Reversibel")
 
-    # Heart disease diagnosis
     # Submit button
     submit_button = st.form_submit_button(label='Kirim')
 
@@ -83,7 +85,7 @@ if submit_button:
         'oldpeak': [oldpeak],
         'slope': [slope],
         'ca': [ca],
-        'thal': [thal],
+        'thal': [thal]
     }
     df = pd.DataFrame(data)
 
@@ -96,4 +98,4 @@ if submit_button:
         prediction = model.predict(df)
         st.write(f"Hasil Prediksi: {'Penyakit Jantung Ditemukan' if prediction[0] > 0 else 'Tidak Ada Penyakit Jantung'}")
     except Exception as e:
-        st.error(f"Error: {e}")
+        st.error(f"Error during prediction: {e}")
