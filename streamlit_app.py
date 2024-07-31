@@ -3,8 +3,8 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-with open('hearth.pkl', 'rb') as f:
-    model = pickle.load(f)
+
+model = pickle.load(open('hearth.pkl', 'rb'))
 
 # Title
 st.title("Form Input Prediksi Penyakit Jantung")
